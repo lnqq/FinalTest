@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CARO B</title>
+	<meta charset="utf-8">
+</head>
+<style>
+	input[type=text]{
+		width: 100px;
+	}
+	button{
+		width: 30px;
+		height: 30px;
+	}
+	#create{
+		width: 150px;
+	}
+</style>
+
+<body>
+	<input type="text" name="num" id="num"> &nbsp; Hàng và Cột &nbsp;
+	<button id="create" onclick="create()">Tạo Mới</button>
+	<div id="main"></div>
+	
+	<script>
+		function render(num){
+			var resum = "<table cellspacing ='0' cellpadding ='0'>";
+			for(var i =0 ; i< num ; i++){
+				resum += "<tr>";
+				for(var j = 0; j < num; j++){
+					resum += "<td>";
+					resum += "<button id='but"+i+"_"+j+"'></button>";
+					resum += "</td>";
+				}
+				resum += "</tr>";				
+			}
+			resum += "</table>";
+			return resum;
+		}
+
+		function create(){
+			var num = document.getElementById("num").value;
+			document.getElementById("main").innerHTML = render(num);
+		}
+	</script>
+</body>
+</html>
